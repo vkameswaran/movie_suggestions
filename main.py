@@ -6,7 +6,9 @@ from utils import analyse, compare, search, find_similar_movies, data1
 # topN = 10
 # find_similar_movies(my_movie, 5)
 
-searchIndex = search(input("Enter a movie name: "))
-new_movie = data1.iloc[searchIndex]
-
-find_similar_movies(new_movie, 5)
+try:
+    searchIndex = search(input("Enter a movie name: "))
+    new_movie = data1.iloc[searchIndex]
+    find_similar_movies(new_movie, 5)
+except LookupError:
+    print("We couldn't find that movie in our database.")
